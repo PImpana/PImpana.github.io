@@ -1,0 +1,54 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Job Vacancies in the UK",
+    "anchor": "start",
+    "subtitle": "Total vacancies, 000's | Source: ONS through ECO API",
+    "fontSize": 15,
+    "subtitleFontSize": 12,
+    "subtitleFontStyle":"italic"
+  },
+  "height": 300,
+  "width": 600,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "background": "#ede7e7",
+  "view": {
+    "fill": "white",
+    "strokeOpacity": 0
+  },
+  "data": {
+    "url": "https://api.economicsobservatory.com/gbr/vacn?vega",
+    "format": {
+      "type": "json"
+    }
+  },
+  "mark": {
+    "type": "line",
+    "color": "#f4134d",
+    "strokeWidth": 2
+  },
+  "encoding": {
+    "x": {
+      "field": "date",
+      "type": "temporal",
+      "axis": {
+        "title": " Year",
+        "titleColor": "#0e202a",
+        "grid": false,
+        "tickCount":8
+      }
+    },
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "axis": {
+        "title": "Vacancies in thousands",
+        "titleColor": "#122B39",
+        "grid": false
+      }
+    }
+  }
+}
