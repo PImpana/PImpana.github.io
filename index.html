@@ -1,171 +1,214 @@
-<!-- This HTML file provides a simple example of a portfolio page. It contains a header, a few sections, and a few charts. -->
-<!-- It works with the three css files in this folder: example1.css, example2.css and example3.css. -->
-<!-- The HTML file defines the structure of the page, and the CSS files define how it looks. -->
-<!-- The CSS examples are all designed to work with this page. Try swapping them out on line 29 and see what happens. -->
-
-<!-- Take a look around and make your own copy to adapt for your own use. -->
-
-<!-- This is a comment -->
-<!-- Comments are not displayed in the browser -->
-<!-- They can be used to leave notes in the code -->
-
 <!DOCTYPE html>
-<html> 
-    <!-- HTML is heirarchial: tags like this define elements on the page. 
-    Each tag does something different. For example:
-        - The <html> tag defines the whole document.
-        - The <h1> tag defines a large heading
-        - The <p> tag defines a paragraph
-        - Tags appear as an opening <div> and closing </div> pair
-    -->
+<html>
+    <head>
+        <title>My Portfolio</title>
+        <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+        <!-- Font Awesome for the email icon -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-<head>    
-    <!-- The head tag links to resources our page needs and defines information about it. Tags in the <head> aren't displayed on the page. -->
+        <style>
+            /* Gradient background for the entire body */
+            body {
+                font-family: 'Times New Roman', Times, serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                position: relative;
+                min-height: 100vh; /* Full height */
+                background: linear-gradient(120deg, #f0f0f0, #e6f0ff); /* Gradient background */
+            }
 
-    <!-- This is a link to a stylesheet which contains rules about how each element on the page should be defined-->
-    <!-- Try swapping example1.css to another, and take a look at example1.css to see if you understand it-->
-    <link rel="stylesheet" type="text/css" href="index.css">
-    <!--you can change the css file name and then change it in line 27 again-->
-    <title>My Portfolio</title> <!-- The title displayed in the browser tab, not on the page itself -->
+            /* Full-width name section with distinct background */
+            .name-section {
+                width: 100%; /* Full width */
+                background: linear-gradient(90deg, #00264d, #003366); /* Gradient dark blue background */
+                padding: 50px 0; /* Padding for spacing */
+                color: white;
+                position: relative;
+                z-index: 1; /* Ensure it stays on top of the background */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            }
 
-    <!-- This is a link to the vega-lite which we're using to make graphs -->
-    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+            /* Contain text in the center */
+            .name-container {
+                max-width: 800px; /* Adjust as needed */
+                margin: 0 auto;
+            }
 
-    <style>
-        #chartGrid {
-            display: flex;
-        }
-        
-    </style>
-</head>
+            .name {
+                font-size: 3.5em; /* Large font for the name */
+                font-weight: bold;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Subtle text shadow */
+            }
 
-<body 
-text-align: center;
-style="text-align: center; margin: 10px; padding: 10px; font-size: larger;">
-    <h1 class="big" style="margin-bottom: 0px;">
-        Impana Pattanshetti
-    </h1>
-    <p style="margin-top: px; color: darkblue;">
-        Impana | <a href="https://www.linkedin.com/in/impana-pattanshettii">LinkedIn</a> | 
-        <a href="https://www.github.com/PImpana">GitHub</a>
-    </p>
-    <p class="small">
-        Welcome to my page! Impana is a current student at London School of Economics and Political Science studying Masters of Public Administration.
-        An avid lover of Economics, she also has a Bachelors in Economics(honours) from Christ (deemed to be) University, Bangalore, India. 
-        Impana worked as a Senior Tax Analyst in the International Tax and Transaction Services division at Ernst and Young LLP. 
-        In this role, she specialised in transfer pricing, where she supported the Ernst and Young London team by conducting economic analyses,
-        preparing transfer pricing documentation, and evaluating intercompany transactions to ensure they met international taxation standards. 
-    </p>
-    <p class="small"> 
-        This page acts as my submission for the PP434: Automated Data Visualisation for Policymaking course.
-    </p>
-</body>
+            /* The link section right under the name */
+            .links {
+                font-size: 1.5em; /* Smaller font size */
+                margin-top: 20px;
+            }
 
+            .links a {
+                color: #99ccff; /* Light blue */
+                text-decoration: none;
+                margin: 0 10px;
+                transition: color 0.3s ease; /* Smooth transition */
+            }
 
-    <!-- We're organising the page into sections, with each section containing a chart, title and a description -->
-    
-    <section>
-        <div class="chart-description">
-            <h2 style="text-align:center; color:Black; font-size:30px;">
-            Section 1: A basic chart
-                
-            </h2>
-            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
-                The week's task was to set up your own Github account and live page and then embed two charts within the site. 
-                The following chart depicts the unemployment rate of 3 ccountries from 1960-2020.
-                This was produced using an example provided in class.
-            </p>
+            .links a:hover {
+                color: white;
+                text-decoration: underline;
+            }
+
+            /* Info section with light blue background */
+            .info-section {
+                width: 100%;
+                background-color: rgba(230, 240, 255, 0.9); /* Light blue background with transparency */
+                padding: 40px 20px;
+                color: #003366; /* Dark blue text */
+                position: relative;
+                z-index: 1; /* Ensure it stays on top of the background */
+                box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            }
+
+            /* About Me container with flexbox */
+            .about-me-container {
+                display: flex; /* Flexbox to align text and image */
+                justify-content: space-between; /* Space between text and image */
+                align-items: center; /* Center items vertically */
+                max-width: 900px; /* Limit the width of the container */
+                margin: 0 auto; /* Center the container */
+                padding: 20px;
+                background: white; /* White background for contrast */
+                border-radius: 10px; /* Rounded corners */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            }
+
+            /* Text styling in About Me */
+            .about-me-text {
+                flex: 1; /* Allow the text to take available space */
+                font-size: 1.2em;
+                line-height: 1.8;
+                color: #003366;
+                text-align: left;
+            }
+
+            /* Image styling in About Me */
+            .about-me-image {
+                width: 220px; /* Set the image width */
+                height: auto; /* Maintain aspect ratio */
+                margin-left: 20px; /* Space between text and image */
+                border-radius: 50%; /* Make the image circular */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow */
+                transition: transform 0.3s ease; /* Smooth transition */
+            }
+
+            .about-me-image:hover {
+                transform: scale(1.1); /* Slight zoom on hover */
+            }
+
+            /* Get in Touch Section */
+            .contact-section {
+                width: 100%;
+                background: linear-gradient(90deg, #00264d, #003366); /* Gradient dark blue background */
+                padding: 20px;
+                color: white;
+                text-align: center;
+            }
+
+            .contact-section .heading {
+                font-size: 2.6em;
+                margin-bottom: 10px;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
+
+            .contact-section .email-link {
+                font-size: 1.2em;
+                color: #99ccff;
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+
+            .contact-section .email-link:hover {
+                color: white;
+                text-decoration: underline;
+            }
+
+            .contact-section .email-icon {
+                font-size: 1.3em;
+                margin-right: 5px;
+            }
+
+            /* Footer Section */
+            .footer {
+                width: 100%;
+                background-color: #003366; /* Same color as the header */
+                color: white;
+                padding: 20px;
+                text-align: center;
+                font-size: 0.9em;
+                margin-top: auto; /* Pushes the footer to the bottom */
+                box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            }
+
+            .footer a {
+                color: #99ccff;
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+
+            .footer a:hover {
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Name Section -->
+        <div class="name-section">
+            <div class="name-container">
+                <div class="name">Impana Pattanshetti</div>
+                <div class="links">
+                    <a href="https://www.linkedin.com/in/impana-pattanshettii">LinkedIn</a> |
+                    <a href="https://www.github.com/PImpana">GitHub</a> |
+                    <a href="http://127.0.0.1:5500/portfolio.html">Portfolio</a> |
+                    <a href="http://127.0.0.1:5500/Project.html">Project</a>
+                </div>
+            </div>
         </div>
-        <figure id="Location1"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
-    </section>
 
-    <section>
-        <div class="chart-description">
-            <h2
-            style="text-align:center; color:Black; font-size:30px;">
-            Section 2: Declining populations </h2>
-            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
-                The following chart depicts the declining population rates of seven countries.
-                This was produced using an example provided in class.
-            </p>
+        <!-- About Me Section -->
+        <div class="info-section">
+            <div class="about-me-container">
+                <div class="about-me-text">
+                    <h2>About Me</h2>
+                    <p>
+                        Welcome to my page! I am currently pursuing a Master of Public Administration, Public Policy
+                        at the London School of Economics and Political Science (LSE). With a strong foundation
+                        in Economics and Public Policy, my expertise lies in analyzing and addressing key policy issues.
+                    </p>
+                    <p>
+                        Currently, this page showcases my coursework submission for my LSE course: PP434- Automated Data Visualisation for Policymaking.
+                        Here, you will find visualizations I have created on key policy matters, blending data-driven insights
+                        with thoughtful analysis.
+                    </p>
+                </div>
+                <img src="Professional photo.jpg" alt="Professional Photo" class="about-me-image">
+            </div>
         </div>
-        <figure id="Location2"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
-    </section>
-
-    <section>
-        <div class="chart-description">
-            <h2
-            style="text-align:center; color:Black; font-size:30px;">
-            Section 3: US inflation </h2>
-            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
-                We've organised the page into sections, with each section containing a chart, title and a description. Here, we can describe the chart and give some context.
-                As a first example, we're using a basic chart from our repo.
-            </p>
+        <!-- Get in Touch Section -->
+        <div class="contact-section">
+            <div class="heading">Get in Touch</div>
+            <a href="mailto:pattanshettiimpana@gmail.com" class="email-link">
+                <i class="fas fa-envelope email-icon"></i> Email Me
+            </a>
         </div>
-        <figure id="Location3"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
-    </section>
-
-    </section>
-        <div class="chart-description">
-            <h2
-            style="text-align:center; color:Black; font-size:30px;">
-                Section 4: UK Job Vacancy </h2>
-            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
-                We've organised the page into sections, with each section containing a chart, title and a description. Here, we can describe the chart and give some context.
-                As a first example, we're using a basic chart from our repo.
-            </p>
+        <!-- Footer Section -->
+        <div class="footer">
+            © 2024 Impana Pattanshetti. All rights reserved.
         </div>
-        <figure id="Location4"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
-    </section>
-
-</section>
-<div class="chart-description">
-    <h2
-    style="text-align:center; color:Black; font-size:30px;"> 
-        Section 5: UK Productivity </h2>
-    <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
-        We've organised the page into sections, with each section containing a chart, title and a description. Here, we can describe the chart and give some context.
-        As a first example, we're using a basic chart from our repo.
-    </p>
-</div>
-<figure id="Location5"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
-</section>
-
-
-    <!-- Do you want to add more sections? -->
-        <!-- Try copying pasting the section above -->
-        <!-- You'll need to change the id of the figure "<figure id="Location3"... -->
-        <!-- ... and add a new variable for the graph spec in the script at the bottom of the page -->
-
-
-    <!-- This is a script, it's a way to run JavaScript code on the page -->
-    <script>
-        // This is a comment in JavaScript - it's a different language to HTML and CSS
-
-        let figure_1_spec = "wk1_chart1_portfolio.json"; // We're storing the URL of the graph we want to display in a variable
-        let figure_2_spec = "wk1_portfolio_chart2.json"
-        let figure_3_spec = "wk1_US_inflation.json"
-        let figure_4_spec = "wk2_UK_jobvacancy.json"
-        let figure_5_spec = "wk2_UK_productivity.json"
-                                                                                                                    // You should have a spec for a graph in this same folder. Just specify its name here, e.g. let figure_1_spec = "chart1.json"
-
-        vegaEmbed('#Location1', figure_1_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_1
-        vegaEmbed('#Location2', figure_2_spec)
-        vegaEmbed('#Location3', figure_3_spec)
-        vegaEmbed('#Location4', figure_4_spec) 
-        vegaEmbed('#Location5', figure_5_spec)   //vegEmbed- where we want to present the chart
-
-        // Do you want to add more graphs?
-        // try defining a new variable for figure_3_spec, adding VegaEmbed for Location3, and adding a new section in the HTML
-        // e.g. 
-        // let figure_3_spec = ...
-        // vegaEmbed('#Location3', figure_3_spec)
-
-
-    </script>
-
-</body>
-    
+    </body>
 </html>
