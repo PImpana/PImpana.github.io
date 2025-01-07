@@ -154,8 +154,6 @@
             <p style="font-size: 1.1em;text-align: left;"> <!-- This is a paragraph, it's the main way to display text on a web page -->
                 The following line chart provides information on the trend of the total police recorded crimes in United Kingdom from 2002 to 2024. 
                It can be observed that total number of police recorded crimes over the past 2 decades has fluctuated.
-               However, since 2010, it can be observed that the total number of crimes has been steadiy increasing over the years with a sharp decline 
-               in 2019-20 which could explained by the COVID-19 pandemic.
                 Feel free to use the slider to customise the chart as per your choice.
             </p>
             <p>
@@ -214,22 +212,20 @@ In contrast, Redbridge and Harrow have the lowest median pay, falling below the 
     </h3>
     <p style="font-size: 1.1em;text-align: left;"> <!-- This is a paragraph, it's the main way to display text on a web page -->
         This scatter plot explores the relationship between total reported crimes and median annual pay across various London boroughs.
-        By plotting the total number of crimes on the x-axis and median annual pay on the y-axis, we aim to uncover patterns that might suggest a correlation
-        between crime rates and average pay.Interestingly, some of the boroughs with the highest median pay, such as Tower Hamlets and Westminster, 
-        also report higher crime rates, challenging the assumption that higher crime rates are typically found in lower-income areas. 
+       Interestingly, some of the boroughs with the highest median pay, such as Tower Hamlets and Westminster, 
+        report higher crime rates, challenging the assumption that higher crime rates are typically found in lower-income areas. 
         However, this could reflect the influence of wealthier populations and the types of crimes occurring in these regions. 
-        Conversely, Harrow, one of the boroughs with the lowest median pay, reports relatively few crimes.</p>
+        Conversely, Harrow, one of the boroughs with the lowest median pay, reports relatively fewer crimes.</p>
         
         <p>
         <figure id="Location4"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
 </p>
 <p style="font-size: 1.1em;text-align: left;"> <!-- This is a paragraph, it's the main way to display text on a web page -->
-    We fit a best fit line into the total reported crimes and median annual pay across the London boroughs to understand the trend
-   between the dependent variable i.e. Total crime by the independent variable i.e. independent variable. The R square value for the regression 
+    We fit a best fit line into the total reported crimes and median annual pay across the London boroughs. The R square value for the regression 
    is 0.31 which means that approximately
    31% of the change in the total crimes can be explained by the median pay. Although there is a general trend
    there could be various other factors that affect the increase or decrease in crimes and hence we fail to establish a causal relationship.
-    The general trend shows with the increase in wage for boroughs, crimes tend to increase as well.</p>
+    The general trend shows with the increase in median pay, crimes tend to increase as well.</p>
     <p>
     <figure id="Location6"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
 </p>
@@ -255,16 +251,15 @@ In contrast, Redbridge and Harrow have the lowest median pay, falling below the 
         <div class="container"> 
             <h2>Data </h2>
             <p style="font-size: 1.1em;text-align: left;"> <!-- This is a paragraph, it's the main way to display text on a web page -->
-                The data used in the visualisation of the charts were sourced from two main data repositories.The datasets used for the analysis was sourced through various publicly available sources.
-                </p>
+                The data used in the visualisation of the charts were sourced from two main data repositories.
                 <p style="font-size: 1.1em;text-align: left;">
                 1.Office of National Statistics (ONS): The data on total reported crimes,borough wise crime data, and median pay was derived from ONS.</p>
                 <p style="font-size: 1.1em;text-align: left;">
                 2.Metropolitan Police Service:The data on the level of crimes committed by borough was accessed through Metropolitan Police Service website. The Metropolitan
-                        API was used for drafting the recent crimes by borough level.
+                        API was used as well.
             </p>
             <p style="font-size: 1.1em;text-align: left;"> 
-               The datasets used to perform the analysis is publicly available and it is accesible via GitHub repository.
+               The datasets used to perform the analysis is accesible via GitHub repository.
                 The data processing and visualization were performed using Python, and vegalite.
             </p>
     </div>
@@ -290,12 +285,11 @@ In contrast, Redbridge and Harrow have the lowest median pay, falling below the 
             <h2>Conclusion</h2>
             <p style="font-size: 1.1em;text-align: left;"> <!-- This is a paragraph, it's the main way to display text on a web page -->
                 
-    The analysis shows a steady increase in crime statistics across London over the past two decades, with a few exceptions. 
-    Theft and violence against individuals are the most common types of crimes reported. However, a closer look reveals that 
+    The analysis shows theft and violence against individuals are the most common types of crimes reported. However, a closer look reveals that 
     crime rates vary significantly across different boroughs. We examined the relationship between median earnings and crime rates 
     in each borough and identified a trend where higher-income areas tend to have higher crime rates. Westminster, a high-income borough, 
     recorded the highest number of reported crimes, with theft being the predominant offense. 
-    This suggests that higher-income boroughs may experience higher crime rates due to the prevalence of theft implying that 
+    This suggests that higher-income boroughs experiences higher crime rates due to the prevalence of theft implying that 
     these areas must have an increase in surveillance and safety measures.
             </p>
         </div>
