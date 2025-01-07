@@ -1,0 +1,40 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Real GDP",
+    "anchor": "start",
+    "subtitle": "Real GDP, quarterly, £ million | Source: ONS through ECO API",
+    "subtitleFontStyle": "italic",
+    "fontSize": 14,
+    "subtitleFontSize": 12,
+    "color": "#000000",
+    "subtitleColor": "#000000"
+  },
+  "height": 300,
+  "width": 500,
+  "autosize": {"type": "fit", "contains": "padding"},
+  "background": "#ffffff",
+  "view": {"fill": "#ffffff", "strokeOpacity": 1},
+  "data": {
+    "url": "https://api.economicsobservatory.com/gbr/gdp_r?vega",
+    "format": {"type": "json"}
+  },
+  "mark": {"type": "line", "color": "dodgerblue", "strokeWidth": 2},
+  "encoding": {
+    "x": {
+      "field": "date",
+      "type": "temporal",
+      "axis": {"title": "Year", "titleColor": "#122B39", "grid": false}
+    },
+    "y": {
+      "field": "value",
+      "type": "quantitative",
+      "scale": {"domain": [0, 650000]},
+      "axis": {
+        "title": "Real GDP (in £million)",
+        "titleColor": "#122B39",
+        "grid": false
+      }
+    }
+  }
+}
