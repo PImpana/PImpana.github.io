@@ -1,0 +1,42 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "https://raw.githubusercontent.com/PImpana/PImpana.github.io/refs/heads/main/CC6/CPI_ONS_D7GA.json",
+      "format": {
+        "type": "json",
+        "property": "years"
+      }
+    },
+    "title": {
+      "text": "CPI Annual rate:Clothing & Footwear",
+      "fontSize":11,
+      "subtitle": "Base year 2015=100",
+      "subtitleFontStyle":"italic",
+      "subtitleFontSize":10
+    },
+    "width": 200,
+    "height": 300,
+    "mark": {
+      "type": "line",
+      "color": "red"
+    },
+    "encoding": {
+      "x": {
+        "field": "date",
+        "type": "temporal",
+        "title": "Year",
+        "axis": {
+          "grid": false
+        }
+      },
+      "y": {
+        "field": "value",
+        "type": "quantitative",
+        "title": "Annual rate (in %)",
+        "axis":{
+          "grid": false
+          }
+      }
+    }
+  }
+  
