@@ -14,7 +14,7 @@
   "view": {"stroke": "transparent"},
   
   "data": {
-    "url": "https://raw.githubusercontent.com/PImpana/PImpana.github.io/refs/heads/main/crimerate_london_long_format.csv",
+    "url": "https://raw.githubusercontent.com/PImpana/PImpana.github.io/refs/heads/main/project/crimerate_london_long_format.csv",
     "format": {"type": "csv"}
   },
 
