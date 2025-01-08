@@ -1,0 +1,107 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Crime counts by Borough and Crime Type in London (2024)",
+  
+    "title": {
+      "text": "Borough wise crime data",
+      "subtitle":["Source:ONS, UK"],
+      "subtitleFontStyle":"italic",
+      "subtitleFontSize":10,
+      "subtitlePadding":2,
+      "anchor": "start",
+      "color": "black"
+    },
+  
+    "data": {
+      "url": "https://raw.githubusercontent.com/PImpana/PImpana.github.io/refs/heads/main/Cc10/boroughcrimetype_long_format.csv",
+      "format": {"type": "csv"}
+    },
+    "height": 300,
+    "width": 500,
+  
+    "selection": {
+      "chooseBorough": {
+        "type": "single",
+        "fields": ["Borough"],
+        "bind": {
+          "input": "select",
+          "options": [
+            "Barking and Dagenham",
+            "Barnet",
+            "Bexley",
+            "Brent",
+            "Bromley",
+            "Camden",
+            "Croydon",
+            "Ealing",
+            "Enfield",
+            "Greenwich",
+            "Hackney",
+            "Hammersmith and Fulham",
+            "Haringey",
+            "Harrow",
+            "Havering",
+            "Hillingdon",
+            "Hounslow",
+            "Islington",
+            "Kensington and Chelsea",
+            "Kingston upon Thames",
+            "Lambeth",
+            "Lewisham",
+            "London Heathrow and London City Airports",
+            "Merton",
+            "Newham",
+            "Redbridge",
+            "Richmond upon Thames",
+            "Southwark",
+            "Sutton",
+            "Tower Hamlets",
+            "Unknown",
+            "Waltham Forest",
+            "Wandsworth",
+            "Westminster"
+          ],
+          "name": "Select Borough:"
+        }
+      }
+    },
+  
+   "transform": [
+      {"filter": "datum['Crime Type'] != 'Grand Total'"}, 
+      {"filter": {"selection": "chooseBorough"}}
+    ],
+  
+    "mark": "bar",
+  
+    "encoding": {
+      "x": {
+        "field": "Crime Type",
+        "type": "nominal",
+        "title": "Type of Crime",
+        "axis": {"labelAngle": -45, "labelFontSize":7}
+      },
+      "y": {
+        "field": "Crime",
+        "type": "quantitative",
+        "title": "Number of Crimes"
+      },
+      "color": {
+        "field": "Crime Type",
+        "type": "nominal",
+        "scale":{"scheme":"tableau20"},
+        "legend": {
+          "title": "Crime Type",
+          "labelFontSize":7,
+          "orient": "right"
+        }
+         
+      },
+      "tooltip": [
+        {"field": "Borough", "type": "nominal", "title": "Borough"},
+        {"field": "Crime Type", "type": "nominal", "title": "Crime Type"},
+        {"field": "Crime", "type": "quantitative", "title": "Crime Count"}
+      ]  
+    }
+    
+  }
+  
