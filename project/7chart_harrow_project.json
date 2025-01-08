@@ -2,7 +2,7 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {
       "text": "Crime in Harrow",
-      "subtitle": "Recent crime in Tower Harrow (low income borough)",
+      "subtitle": "Recent crime in Harrow (low income borough)",
       "subtitleFontStyle": "italic",
       "fontSize": 16,
       "subtitleFontSize": 13,
