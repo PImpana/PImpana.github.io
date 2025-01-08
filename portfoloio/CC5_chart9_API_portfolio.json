@@ -1,0 +1,64 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+         
+    "title": {
+        "text": "Comparing UK economy",
+        "fontSize":14,
+        "subtitle":["Unemployment rate and Inflation rate | Source: ONS via ECO API.",""],
+        "subtitleFontStyle":"italic",
+        "subtitleFontSize":12,
+        "anchor": "start",
+        "color": "black"},
+        
+    "data": {
+        "url": "https://raw.githubusercontent.com/PImpana/PImpana.github.io/refs/heads/main/CC5/chart9.csv"
+        },
+    
+          
+    "height": 300,
+    "width": 500,   
+    
+    "mark": {   
+            "type":"line",
+            "strokeWidth":2},    
+
+  "transform": [
+    {
+      "lookup": "series",
+      "from": {
+        "data": {
+          "values": [
+            {"series": "unemploymentrate", "label": "Unemployment Rate (%)"},
+            {"series": "inflationrate", "label": "Inflation Rate (%)"}
+          ]
+        },
+        "key": "series",
+        "fields": ["label"]
+      }
+    }
+  ],
+    
+    "encoding": {
+            "x": {
+                "field": "date",
+                "type": "temporal",
+                "title":"Year",
+                "axis":{"grid": false}},
+    
+            "y": {
+                "field": "value",
+                "type": "quantitative",
+                "scale":{"domain":[0,12]},
+                "title": "Percentage rate",
+                "axis":
+                {"grid": false, "ticks": true }
+                },
+    
+            "color": {
+                "field": "label",
+                "legend":{
+                    "orient":"top-right"
+                },
+                "title":""}
+    }
+  }
