@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": {
-    "text": "Total Crime vs Median pay across London Boroughs",
+    "text": "Total Crime vs Median Pay across London Boroughs",
     "subtitle": [
       "Source: Crime data-Metropolitan Police Service; Weekly Pay- ONS"
     ],
@@ -22,6 +22,14 @@
   },
   "height": 400,
   "width": 600,
+  "selection": {
+    "highlight": {
+      "type": "single",
+      "fields": ["Borough"],
+      "on": "click",
+      "clear": "dblclick"
+    }
+  },
   "encoding": {
     "x": {
       "field": "Total Crimes",
@@ -54,6 +62,13 @@
         "title": null,
         "symbolLimit": 50
       }
+    },
+    "opacity": {
+      "condition": {
+        "selection": "highlight",
+        "value": 1
+      },
+      "value": 0.2
     }
   }
 }
