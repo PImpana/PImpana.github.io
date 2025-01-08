@@ -20,7 +20,7 @@
     "layer": [
       {
         "data": {
-          "url": "https://raw.githubusercontent.com/PImpana/PImpana.github.io/refs/heads/main/CC7/Indian%20states.json",
+          "url": "https://raw.githubusercontent.com/PImpana/PImpana.github.io/refs/heads/main/portfoloio/CC7_Indian%20states.json",
           "format": { "property": "features" }
         },
         "projection": { "type": "mercator" },
