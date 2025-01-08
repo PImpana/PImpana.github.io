@@ -1,0 +1,94 @@
+{
+  "config": {"view": {"continuousWidth": 300, "continuousHeight": 300}},
+  "data": {"name": "data-3b318b3596795822a682dbb21cf418de"},
+  "mark": {"type": "bar"},
+  "encoding": {
+    "color": {"field": "price_type", "type": "nominal"},
+    "column": {
+      "field": "store_id",
+      "header": {"labelOrient": "bottom"},
+      "title": "",
+      "type": "nominal"
+    },
+    "x": {
+      "axis": {"labels": false},
+      "field": "price_type",
+      "title": "",
+      "type": "nominal"
+    },
+    "y": {
+      "axis": {"labelExpr": "'£' + datum.label", "labelOverlap": false},
+      "field": "price_value",
+      "title": "Price (£)",
+      "type": "quantitative"
+    }
+  },
+  "title": {
+    "text": "Beer lager prices by store",
+    "subtitle": ["Mean and median prices- data from all stores", ""]
+  },
+  "width": 100,
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json",
+  "datasets": {
+    "data-3b318b3596795822a682dbb21cf418de": [
+      {
+        "store_id": "Store 1",
+        "price_type": "median_price",
+        "price_value": 2.35
+      },
+      {"store_id": "Store 2", "price_type": "median_price", "price_value": 3},
+      {
+        "store_id": "Store 3",
+        "price_type": "median_price",
+        "price_value": 2.49
+      },
+      {
+        "store_id": "Store 4",
+        "price_type": "median_price",
+        "price_value": 1.49
+      },
+      {"store_id": "Store 5", "price_type": "median_price", "price_value": 2.5},
+      {
+        "store_id": "Store 6",
+        "price_type": "median_price",
+        "price_value": 2.65
+      },
+      {"store_id": "Store 7", "price_type": "median_price", "price_value": 2.5},
+      {
+        "store_id": "Store 1",
+        "price_type": "mean_price",
+        "price_value": 4.357183577873564
+      },
+      {
+        "store_id": "Store 2",
+        "price_type": "mean_price",
+        "price_value": 7.7165303192765915
+      },
+      {
+        "store_id": "Store 3",
+        "price_type": "mean_price",
+        "price_value": 5.2258123736603475
+      },
+      {
+        "store_id": "Store 4",
+        "price_type": "mean_price",
+        "price_value": 2.2802443945192534
+      },
+      {
+        "store_id": "Store 5",
+        "price_type": "mean_price",
+        "price_value": 4.8336737853395375
+      },
+      {
+        "store_id": "Store 6",
+        "price_type": "mean_price",
+        "price_value": 5.032822240823741
+      },
+      {
+        "store_id": "Store 7",
+        "price_type": "mean_price",
+        "price_value": 3.677910098808174
+      }
+    ]
+  }
+}
