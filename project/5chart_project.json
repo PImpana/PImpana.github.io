@@ -1,0 +1,52 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Borough wise annual median pay with National Average highlighted",
+    "width": 600,
+    "height": 600,
+    "data": {
+      "url": "https://raw.githubusercontent.com/PImpana/PImpana.github.io/refs/heads/main/project/borough_avgmedianyearlypay.csv"
+    },
+    "transform": [
+      {
+        "filter": "datum.Borough !== 'City of London'", 
+        "window": [{"op": "rank", "as": "rank"}],
+        "sort": [{"field": "value", "order": "descending"}]
+      }
+    ],
+    "title": {
+      "text": "London Borough wise annual median pay (£)",
+      "fontWeight": "bold",
+      "subtitle": "Median pay is averaged from 2013-2024 | Source: ONS",
+      "subtitleFontStyle": "italic"
+    },
+    "mark": {"type": "bar", "tooltip": true},
+    "encoding": {
+      "y": {
+        "field": "Borough",
+        "type": "nominal",
+        "sort": {"field": "value", "order": "descending"},
+        "title": "Borough"
+      },
+      "x": {
+        "field": "Average annual pay",
+        "type": "quantitative",
+        "title": "Yearly Median pay (£)"
+      },
+      "color": {
+        "condition": {
+          "test": "datum.Borough === 'National Average'",
+          "value": "red"
+        },
+        "value": "steelblue"
+      },
+      "tooltip": [
+        {"field": "Borough", "type": "nominal", "title": "Borough"},
+        {
+          "field": "Average annual pay",
+          "type": "quantitative",
+          "title": "Median pay (£)"
+        }
+      ]
+    }
+  }
+  
