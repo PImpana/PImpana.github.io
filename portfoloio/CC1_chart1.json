@@ -1,55 +1,48 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "description": "Chart that uses repeated layers to make multiple calls to an API",
+
   "title": {
-    "text": "Renewables",
-    "anchor": "start",
-    "subtitle": "Output, GWh, | IEA via ECO-API",
-    "fontSize": 14,
-    "subtitleFontSize": 12,
+    "text": "Unemployment rate- Canada, US, and UK, 1950-2020",
+    "fontSize":14,
+    "subtitle":"% rate | Source: STATCAN, FRED, ONS via ECO API",
     "subtitleFontStyle":"italic",
-    "color": "#000000",
-    "subtitleColor": "#000000"
+    "subtitleFontSize":12,
+    "anchor": "start",
+    "color": "black"
   },
-  "height": 300,
-  "width": 450,
-  "autosize": {
-    "type": "fit",
-    "contains": "padding"
-  },
-  "background":"white",
-  "view": {
-    "fill": "#ffffff",
-    "strokeOpacity": 0.8
-  },
-  "data": {
-    "url": "https://api.economicsobservatory.com/gbr/rGWh?vega",
-    "format": {
-      "type": "json"
-    }
-  },
-  "mark": {
-    "type": "bar",
-    "color": "dodgerblue",
-    "strokeWidth": 2
-  },
+
+  "height":300,
+  "width":500,
+
   "encoding": {
-    "x": {
-      "field": "date",
-      "type": "temporal",
-      "axis": {
-        "title": "Year",
-        "titleColor": "#122B39",
-        "grid": false
-      }
+    "x": {"field": "date", "type": "temporal", "title":"Year", "axis": {"grid": false}},
+    "y": {"field": "value", "type": "quantitative", "title": "Unemployment rate", "axis": {"grid": false}},
+    "color":{"field":"Country", "title":null, "legend":{"orient": "top-left"}}
+  },
+
+  "layer": [
+    
+    {"data": {"url": "https://api.economicsobservatory.com/gbr/unem?vega"},
+    "transform": [
+      {"calculate": "'United Kingdom'", "as": "Country"}
+    ],
+    "mark": {"type":"line", "color":"aliceblue"}
     },
-    "y": {
-      "field": "value",
-      "type": "quantitative",
-      "axis": {
-        "title": "Output GWh",
-        "titleColor": "#122B39",
-        "grid": false
-      }
-    }
-  }
+
+    {"data": {"url": "https://api.economicsobservatory.com/can/unem?vega"},
+    "transform": [
+      {"calculate": "'Canada'", "as": "Country"}
+    ],
+    "mark": {"type":"line", "color":"blue"}
+    },
+
+    {"data": {"url": "https://api.economicsobservatory.com/usa/unem?vega"},
+    "transform": [
+      {"calculate": "'United States'", "as": "Country"}
+    ],
+    "mark": {"type":"line", "color":"black"}
+    } 
+  ]
 }
