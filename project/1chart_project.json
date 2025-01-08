@@ -1,0 +1,80 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  
+    "description": "Total police recorded crimes by ONS",
+  
+    "title": {
+      "text": "Total Crimes- UK",
+      "subtitle": "Source:Office for National Statistics (UK)",
+      "subtitleFontStyle": "italic",
+      "subtitleFontSize": 10,
+      "anchor": "start",
+      "color": "black"
+    },
+  
+    "width": 400,
+    "height": 400,
+  
+    "mark": {
+      "type": "line",
+      "color": "rgb(0,112,192)",
+      "strokeWidth": 2,
+      "opacity": 1
+    },
+  
+    "data": {
+      "url": "https://raw.githubusercontent.com/PImpana/PImpana.github.io/refs/heads/main/Cc10/Totalcrime_UK_historical.csv",
+      "format": { "type": "csv" }
+    },
+  
+    "transform": [
+      { "calculate": "year(datum.Date)", "as": "year" },
+      { "filter": "datum.year >= minYear && datum.year <= maxYear" }
+    ],
+
+    "params": [
+      {
+        "name": "minYear",
+        "value": 2002,
+        "bind": {
+          "input": "range",
+          "min": 2002,
+          "max": 2024,
+          "step": 1,
+          "name": "Start year:"
+        }
+      },
+      {
+        "name": "maxYear",
+        "value": 2024,
+        "bind": {
+          "input": "range",
+          "min": 2002,
+          "max": 2024,
+          "step": 1,
+          "name": "End year:"
+        }
+      }
+    ],
+  
+    "encoding": {
+      "x": {
+        "field": "Date",
+        "type": "temporal",
+        "title": "Year",
+        "axis":{"tickCount":5}
+      },
+      "y": {
+        "field": "Totalcrime",
+        "type": "quantitative",
+        "title": "Number of crimes",
+        "scale":{"domain":[2000000,8000000]}
+      },
+  
+     "tooltip":[
+            {"field":"Totalcrime", "type": "quantitative", "title":"Total Crime"},
+            {"field":"Date", "type": "temporal", "title":"Date"}]
+  
+    }
+  }
+  
