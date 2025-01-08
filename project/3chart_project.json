@@ -13,7 +13,7 @@
     },
   
     "data": {
-      "url": "https://raw.githubusercontent.com/PImpana/PImpana.github.io/refs/heads/main/Cc10/boroughcrimetype_long_format.csv",
+      "url": "https://raw.githubusercontent.com/PImpana/PImpana.github.io/refs/heads/main/project/boroughcrimetype_long_format.csv",
       "format": {"type": "csv"}
     },
     "height": 300,
