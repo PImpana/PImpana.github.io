@@ -1,0 +1,70 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.16.3.json",
+
+  "description": "Total reported crime in London by Crime Type in 2024",
+  "title":{
+    "text":"Total Reported crimes in London, 2024",
+  "subtitle":"Source: ONS",
+  "subtitleFontStyle":"italic"
+  },
+  
+  "height": 400,
+  "width": 500,
+
+  "view": {"stroke": "transparent"},
+  
+  "data": {
+    "url": "https://raw.githubusercontent.com/PImpana/PImpana.github.io/refs/heads/main/crimerate_london_long_format.csv",
+    "format": {"type": "csv"}
+  },
+
+  "selection": {
+    "region": {"type": "multi", "fields": ["Crime Type"], "bind": "legend"}
+  },
+     
+  "mark": {"type": "area"},
+
+  "encoding": {
+    "color": {
+      "field": "Crime Type",
+      "type": "nominal",
+      "scale": {"scheme": "turbo"},
+      "legend": {
+        "title": "Type of Crime in London",
+        "orient": "bottom",
+        "columns": 2,
+        "labelLimit": 0,
+        "titleLimit": 0,
+        "labelFontSize": 10
+      }
+    },
+
+    "x": {
+      "field": "Date",
+      "type": "temporal",
+      "timeUnit": "month",
+      "axis": {
+        "grid": false,
+        "title": "Date"
+      }
+    },
+    
+    "y": {
+      "field": "Crime Rate",
+      "type": "quantitative",
+      "axis": {
+        "gridDash": [1, 5],
+        "titleAngle": 0,
+        "titleAlign": "left",
+        "titleFontStyle": "italic",
+        "titleY": -10,
+        "title": "Number of Crimes"
+      }
+    },
+    "tooltip": [
+      {"field": "Crime Type", "type": "nominal", "title": "Crime Type"},
+      {"field": "Crime Rate", "type": "quantitative", "title": "Crime Count"}
+    ] 
+
+  }
+}
