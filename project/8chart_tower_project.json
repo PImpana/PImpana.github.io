@@ -1,0 +1,61 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Crime in Westminster",
+    "subtitle": "Recent crime in Westminster (high income borough)",
+    "subtitleFontStyle": "italic",
+    "fontSize": 16,
+    "subtitleFontSize": 13,
+    "anchor": "start",
+    "color": "#e1e5e4",
+    "subtitleColor": "#e1e5e4"
+  },
+  "data": {
+    "url": "https://data.police.uk/api/crimes-street/all-crime?lat=51.5072&lng=-0.1277"
+  },
+  "transform": [{"calculate": "1", "as": "crime"}],
+  "width": 300,
+  "height": 300,
+  "background": "#273349",
+  "mark": {"type": "arc", "innerRadius": 80, "stroke": "white"},
+  "encoding": {
+    "theta": {"aggregate": "sum", "field": "crime", "type": "quantitative"},
+    "color": {
+      "scale": {"scheme": "tableau20"},
+      "field": "category",
+      "type": "nominal",
+      "legend": {
+        "orient": "right",
+        "fillColor": "#273349",
+        "labelColor": "#e1e5e4",
+        "titleColor": "#c8eae4",
+        "title": null,
+        "labelFontSize": 14
+      }
+    },
+    "strokeWidth": {
+      "value": 0,
+      "condition": {
+        "test": {
+          "field": "category",
+          "oneOf": ["violent-crime", "theft-from-the-person"]
+        },
+        "value": 5
+      }
+    },
+    "opacity": {
+      "value": 0.8,
+      "condition": {
+        "test": {
+          "field": "category",
+          "oneOf": ["violent-crime", "theft-from-the-person"]
+        },
+        "value": 1
+      }
+    },
+    "tooltip": [
+      {"field": "category", "type": "nominal"},
+      {"field": "sum_crime", "type": "quantitative", "title": "Crime count"}
+    ]
+  }
+}
