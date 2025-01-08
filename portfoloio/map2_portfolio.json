@@ -1,0 +1,62 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "https://raw.githubusercontent.com/PImpana/PImpana.github.io/refs/heads/main/CC7/Indian%20states.json",
+      "format": {"property": "features"}
+    },
+    "width": 500,
+    "height": 600,
+    "transform": [
+      {
+        "lookup": "properties.ID_1",
+        "from": {
+          "key": "ID_1",
+          "fields": ["State/UTs", "Women Participation (%) - 2023-24", "ID_1"],
+          "data": {
+            "url": "https://raw.githubusercontent.com/PImpana/PImpana.github.io/9463ec4a02abfc8d22990de6f707dfa951e87fed/CC7/India%20state%20wise%20women%20participation%20rate%20copy.csv"
+          }
+        }
+      }
+    ],
+    "mark": {
+      "type": "geoshape",
+      "stroke": "white",
+      "strokeWidth": 0.6
+    },
+    "encoding": {
+      "color": {
+        "condition": {
+          "value": "lightgray",
+          "test": "isNaN(datum['Women Participation (%) - 2023-24'])"
+        },
+        "field": "Women Participation (%) - 2023-24",
+        "type": "quantitative",
+        "legend": {
+          "title": "Women Participation (%)",
+          "format": ".0f", 
+          "titleFontSize": 12,
+          "labelFontSize": 10
+        },
+        "scale": {
+          "scheme":"dark2",
+          "domain": [0, 100]
+        }
+      },
+      "text": {
+        "field": "State/UTs",
+        "type": "nominal"
+      },
+      "tooltip": [
+        {
+          "field": "State/UTs",
+          "title": "State"
+        },
+        {
+          "field": "Women Participation (%) - 2023-24",
+          "title": "Women Participation (%)",
+          "format": ".0f"  
+        }
+      ]
+    }
+  }
+  
