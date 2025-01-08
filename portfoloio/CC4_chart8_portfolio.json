@@ -1,0 +1,52 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Percentage of people who agreed with the Court",
+  "title": {
+
+    "text": "Agreement with Court Decisions by Political Ideology",
+    "fontSize":14,
+    "subtitle": "Source:Western Reserve Public Media",
+    "subtitleFontStyle":"italic",
+    "subtitleFontSize":12,
+    "anchor": "start",
+    "color": "black"
+ },
+"view": {
+    "fill": "lightgray",
+    "strokeOpacity": 0.8
+  },
+  "data": {"url": "https://raw.githubusercontent.com/PImpana/PImpana.github.io/refs/heads/main/CC4/chart7_portfolio.csv"},
+  "mark":{
+
+
+      "type": "bar",
+      "color":"grey",
+      "strokeWidth":5,
+      "opacity":1
+
+    },
+  "height": 300,
+  "width": 400,
+ 
+
+  "encoding": {
+    
+    "x": {"field": "Political Party", 
+          "type": "ordinal",
+          "title":"Political party",
+           "sort":["Democrat","Republican", "Independent"],
+           "axis": {
+        "labelAngle": 360
+      }
+          },
+
+    "y": {"field": "Percentage share",
+         "type": "quantitative",
+          "title": "Percentage",
+          "scale": {"domain": [0, 100]}}
+
+
+    }
+
+
+}
