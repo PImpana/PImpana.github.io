@@ -1,0 +1,228 @@
+{
+  "config": {
+    "view": {
+      "continuousWidth": 400,
+      "continuousHeight": 400
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "circle",
+        "size": 60
+      },
+      "encoding": {
+        "tooltip": [
+          { "field": "Average annual pay", "type": "quantitative" },
+          { "field": "Total Crimes", "type": "quantitative" }
+        ],
+        "x": { "field": "Average annual pay", "type": "quantitative", "title": "Annual Median Pay (£)" },
+        "y": { "field": "Total Crimes", "type": "quantitative" }
+      },
+      "title": {
+        "text": "Total Crime vs Median pay across London Boroughs with best fit line",
+        "subtitle": "Source: Crime data-Metropolitan Police Service; Weekly Pay- ONS",
+        "subtitleFontStyle": "italic"
+      }
+    },
+    {
+      "mark": {
+        "type": "line",
+        "color": "red"
+      },
+      "encoding": {
+        "x": { "field": "Average annual pay", "type": "quantitative" },
+        "y": { "field": "Fitted line", "type": "quantitative" }
+      }
+    },
+    {
+      "mark": {
+        "type": "text"
+      },
+      "encoding": {
+        "text": {
+          "value": "R²: 0.31"
+        },
+        "x": { "value": 430 },
+        "y": { "value": 0 },
+        "color": { "value":"red" },
+        "align": { "value": "left" },
+        "baseline": { "value": "top" },
+        "size": { "value": 12 }
+      }
+    }
+  ],
+  "data": {
+    "name": "data-8d13043d5afb5f14e7eb7bbab498004f"
+  },
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json",
+  "datasets": {
+    "data-8d13043d5afb5f14e7eb7bbab498004f": [
+      {
+        "Average annual pay": 43680,
+        "Total Crimes": 33731,
+        "Fitted line": 48072.843470154905
+      },
+      {
+        "Average annual pay": 38510,
+        "Total Crimes": 81992,
+        "Fitted line": 40760.86204000635
+      },
+      {
+        "Average annual pay": 36830,
+        "Total Crimes": 27830,
+        "Fitted line": 38384.821652646664
+      },
+      {
+        "Average annual pay": 35750,
+        "Total Crimes": 36158,
+        "Fitted line": 36857.36711791544
+      },
+      {
+        "Average annual pay": 35330,
+        "Total Crimes": 39088,
+        "Fitted line": 36263.35702107552
+      },
+      {
+        "Average annual pay": 33810,
+        "Total Crimes": 19662,
+        "Fitted line": 34113.60619441676
+      },
+      {
+        "Average annual pay": 32440,
+        "Total Crimes": 35240,
+        "Fitted line": 32176.001830915113
+      },
+      {
+        "Average annual pay": 31067,
+        "Total Crimes": 24305,
+        "Fitted line": 30234.154538150317
+      },
+      {
+        "Average annual pay": 29430,
+        "Total Crimes": 30938,
+        "Fitted line": 27918.929470229006
+      },
+      {
+        "Average annual pay": 28910,
+        "Total Crimes": 26299,
+        "Fitted line": 27183.488397951012
+      },
+      {
+        "Average annual pay": 28780,
+        "Total Crimes": 21238,
+        "Fitted line": 26999.62812988151
+      },
+      {
+        "Average annual pay": 28010,
+        "Total Crimes": 23708,
+        "Fitted line": 25910.60961900832
+      },
+      {
+        "Average annual pay": 27700,
+        "Total Crimes": 32375,
+        "Fitted line": 25472.173595150285
+      },
+      {
+        "Average annual pay": 27430,
+        "Total Crimes": 10287,
+        "Fitted line": 25090.30996146748
+      },
+      {
+        "Average annual pay": 27060,
+        "Total Crimes": 11153,
+        "Fitted line": 24567.0153523466
+      },
+      {
+        "Average annual pay": 26640,
+        "Total Crimes": 29707,
+        "Fitted line": 23973.005255506672
+      },
+      {
+        "Average annual pay": 26390,
+        "Total Crimes": 36959,
+        "Fitted line": 23619.427816911484
+      },
+      {
+        "Average annual pay": 26140,
+        "Total Crimes": 25389,
+        "Fitted line": 23265.850378316296
+      },
+      {
+        "Average annual pay": 26120,
+        "Total Crimes": 28751,
+        "Fitted line": 23237.56418322868
+      },
+      {
+        "Average annual pay": 25900,
+        "Total Crimes": 27844,
+        "Fitted line": 22926.416037264913
+      },
+      {
+        "Average annual pay": 25767,
+        "Total Crimes": 18505,
+        "Fitted line": 22738.312839932267
+      },
+      {
+        "Average annual pay": 25220,
+        "Total Crimes": 12766,
+        "Fitted line": 21964.685404285992
+      },
+      {
+        "Average annual pay": 25033,
+        "Total Crimes": 25932,
+        "Fitted line": 21700.209480216785
+      },
+      {
+        "Average annual pay": 24778,
+        "Total Crimes": 12017,
+        "Fitted line": 21339.56049284969
+      },
+      {
+        "Average annual pay": 24500,
+        "Total Crimes": 25938,
+        "Fitted line": 20946.382381131836
+      },
+      {
+        "Average annual pay": 24360,
+        "Total Crimes": 18764,
+        "Fitted line": 20748.379015518534
+      },
+      {
+        "Average annual pay": 24010,
+        "Total Crimes": 22074,
+        "Fitted line": 20253.370601485265
+      },
+      {
+        "Average annual pay": 23689,
+        "Total Crimes": 23005,
+        "Fitted line": 19799.37717032904
+      },
+      {
+        "Average annual pay": 23350,
+        "Total Crimes": 27049,
+        "Fitted line": 19319.926163593962
+      },
+      {
+        "Average annual pay": 23122,
+        "Total Crimes": 15436,
+        "Fitted line": 18997.46353959514
+      },
+      {
+        "Average annual pay": 22763,
+        "Total Crimes": 21984,
+        "Fitted line": 18489.726337772452
+      },
+      {
+        "Average annual pay": 21522,
+        "Total Crimes": 15061,
+        "Fitted line": 16734.567932585924
+      },
+      {
+        "Average annual pay": 29072,
+        "Total Crimes": 26287,
+        "Fitted line": 27412.606578160696
+      }
+    ]
+  }
+}
