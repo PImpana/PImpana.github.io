@@ -1,0 +1,59 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Total Crime vs Median pay across London Boroughs",
+    "subtitle": [
+      "Source: Crime data-Metropolitan Police Service; Weekly Pay- ONS"
+    ],
+    "subtitleFontStyle": "italic",
+    "subtitleFontSize": 10,
+    "anchor": "start",
+    "color": "black"
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/PImpana/PImpana.github.io/refs/heads/main/CC9/Borough_avgpay%26crime.csv",
+    "format": {"type": "csv"}
+  },
+  "mark": {
+    "type": "circle",
+    "size": 50,
+    "color": "rgb(0,67,167)",
+    "opacity": 1
+  },
+  "height": 400,
+  "width": 600,
+  "encoding": {
+    "x": {
+      "field": "Total Crimes",
+      "type": "quantitative",
+      "scale": {"domain": [0, 85000]},
+      "title": "Total Number of Reported Crime in 2024"
+    },
+    "y": {
+      "field": "Average annual pay",
+      "type": "quantitative",
+      "scale": {"domain": [18000, 50000]},
+      "title": "Median yearly Pay (£)"
+    },
+    "tooltip": [
+      {"field": "Total Crimes", "type": "quantitative", "title": "Total Crime"},
+      {
+        "field": "Average annual pay",
+        "type": "quantitative",
+        "title": "Median yearly Pay (£)"
+      },
+      {"field": "Borough", "type": "ordinal", "title": "Borough"}
+    ],
+    "color": {
+      "field": "Borough",
+      "type": "ordinal",
+      "scale": {"scheme": "category10"},
+      "legend": {
+        "orient": "bottom",
+        "columns": 4,
+        "title": null,
+        "symbolLimit": 50
+      }
+    }
+  }
+}
