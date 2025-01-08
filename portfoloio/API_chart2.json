@@ -1,0 +1,42 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "https://raw.githubusercontent.com/PImpana/PImpana.github.io/refs/heads/main/CC6/CPI_ONS_D7G8.json",
+      "format": {
+        "type": "json",
+        "property": "years"
+      }
+    },
+    "title": {
+      "text": "CPI annual rate:food & non-alcoholic beverages",
+      "fontSize":10.5,
+      "subtitle": "Base year 2015=100",
+      "subtitleFontStyle":"italic",
+      "subtitleFontSize":10
+    },
+    "width": 200,
+    "height": 300,
+    "mark": {
+      "type": "line",
+      "color": "red"
+    },
+    "encoding": {
+      "x": {
+        "field": "date",
+        "type": "temporal",
+        "title": "Year",
+        "axis": {
+          "grid": false
+        }
+      },
+      "y": {
+        "field": "value",
+        "type": "quantitative",
+        "title": "Annual rate (in %)",
+        "axis":{
+          "grid": false
+          }
+      }
+    }
+  }
+  
