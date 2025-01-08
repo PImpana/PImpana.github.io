@@ -1,0 +1,53 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "India map with state borders in different shades of blue",
+    "title": {
+      "text": "India",
+      "fontSize": 14,
+      "subtitle": ["States within India"],
+      "subtitleFontStyle": "italic",
+      "subtitleFontSize": 12,
+      "anchor": "middle",
+      "align": "center",
+      "color": "black"
+    },
+    "config": {
+      "background": "white",
+      "view": { "stroke": "transparent" }
+    },
+    "width": 500,
+    "height": 600,
+    "layer": [
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/PImpana/PImpana.github.io/refs/heads/main/CC7/Indian%20states.json",
+          "format": { "property": "features" }
+        },
+        "projection": { "type": "mercator" },
+        "mark": {
+          "type": "geoshape",
+          "stroke": "white",
+          "strokeWidth": 0.8
+        },
+        "encoding": {
+          "color": {
+            "field": "properties.NAME_1",
+            "type": "nominal",
+            "scale": {
+              "scheme": "blues"
+            },
+            "legend": null
+          },
+          "tooltip": [
+            {
+              "field": "properties.NAME_1",
+              "type": "nominal",
+              "title": "State"
+            }
+          ]
+        }
+      }
+    ]
+  }
+  
+  
